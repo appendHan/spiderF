@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="yes" name="apple-touch-fullscreen"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <title></title>
+    <script type="text/javascript">
+        if(""=="toplife"){
+            document.write('<link rel="stylesheet" href="../../../st_new/css/toplife/mlogin.min.css?v=20180227">');
+        }else if(""=="jdpay"){
+            document.write('<link rel="stylesheet" href="../../../st_new/css/jdpay/mlogin.min.css?v=20180227">');
+        }else{
+            document.write('<link rel="stylesheet" href="../../../st_new/css/mlogin.min.css?v=20180227">');
+        }
+    </script>
+    <link rel="icon" href="//m.jd.com/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon-precomposed" href="//m.jd.com/images/apple-touch-icon.png"/>
+</head>
+<body style="display: none;">
+<!--禁止chrome自动填充-->
+<input type="text" name="username" style="display:none;">
+<input type="password" name="password" style="display:none;">
+<header id="header" style="display:block;">
+    <span class="icon icon-goback"></span>
+    <span class="txt-header">京东登录</span>
+</header>
+<section class="page">
+	<div class="login-tab" style="display:block">
+		<ul class="username-login login-selected J_ping" content-id="username_login" report-eventid="MLoginRegister_AccountPassword"><span id="account_login_txt">账号密码登录</span></ul>
+		<ul class="sms-login J_ping" content-id="sms_login" report-eventid="MLoginRegister_SMSVerification"><span id="sms_login_txt">短信验证码登录</span></ul>
+	</div>
+    <div class="wrap loginPage">
+        <div id="username_login" class="login-wrap login-wrap-active">
+            <div class="input-container">
+                <div class="txt-username">账号</div>
+                <input id="username" class="acc-input username txt-input J_ping" type="text" value="" placeholder="用户名/邮箱/已验证手机" autocomplete="off" onkeyup="CtoH(this);" report-eventid="MLoginRegister_Username" >
+                <i class="icon icon-clear"></i>
+            </div>
+            <div class="input-container">
+                <div class="txt-password">密码</div>
+                <input id="password" type="password" class="acc-input password txt-input J_ping" placeholder="请输入密码" autocomplete="off" report-eventid="MLoginRegister_Password" onkeyup="CtoH(this);">
+                <i class="icon icon-clear"></i>
+                <label class="label-checkbox J_ping" report-eventid="MLoginRegister_Plaintext">
+                    <input id="onOff_pwd" type="checkbox">
+                    <div class="checkbtn">
+                    </div>
+                </label>
+            </div>
+            <div id="input-code" class="input-container" style="display:none;">
+                <div class="txt-imgverify">验证码</div>
+                <input id="code" class="acc-input imgverify J_ping" type="text" placeholder="请输入图片验证码" autocomplete="off" onkeyup="CtoH(this);" size="11" maxlength="6" report-eventid="MLoginRegister_VerificationCode">
+                <span class="code-box"><img id="imgCode" src="" alt="" class="J_ping" report-eventid="MLoginRegister_PicVerifyRefresh"></span>
+                <i class="icon icon-clear"></i>
+            </div>
+        </div>
+
+        <!--短信验证登录-->
+        <div id="sms_login" class="login-wrap">
+            <div id="img_code_box" class="input-container"  style="display:none;">
+                <input class="acc-input sms-img-verify J_ping" id="smsCode" type="text" placeholder="请输入图片验证码" autocomplete="off" onkeyup="CtoH(this);" size="11" maxlength="6"  report-eventid="MLoginRegister_PicVerifyInput">
+                <span class="sms-code-box"><img id="smsImgCode" src="" alt="" class="J_ping" report-eventid="MLoginRegister_SMS_PicVerifyRefresh"></span>
+                <i class="icon icon-clear"></i>
+            </div>
+            <div class="sms-input-box">
+                <div class="input-container">
+                    <label class="area-box J_ping" report-eventid="MLoginRegister_AreaCode">
+                        <span class="area_code" code="86">+86</span>
+                        <i class="area_icon"></i>
+                    </label>
+                    <input type="tel" id="telphone" class="acc-input telphone sms-txt-input J_ping" placeholder="请输入手机号" report-eventid="MLoginRegister_SMSPhoneInput">
+                    <i class="icon icon-clear"></i>
+                </div>
+                <button data-mesCode="true" class="mesg-code mesg-disable J_ping" report-eventid="MLoginRegister_GetVerification" data-eventid="MLoginRegister_SMSReceiveCode">获取验证码</button>
+            </div>
+            <div class="input-container">
+                <input id="telCode" class="acc-input telCode sms-txt-input J_ping" type="text" placeholder="请输入收到的验证码" autocomplete="off" report-eventid="MLoginRegister_VerificationInput" >
+                <i class="icon icon-clear"></i>
+            </div>
+        </div>
+
+        <div class="notice">&nbsp;</div>
+        <a href="javascript:;" id="loginBtn" class="btn J_ping" report-eventid="MLoginRegister_Login">登 录</a>
+        <a href="javascript:;" id="loginOneStep" class="btn btn-onestep J_ping" report-eventid="MLoginRegister_MLogin" data-src="" style="display:none;">一键登录</a>
+        <input type="hidden" id="oneStep_switch" value="none">
+	    <div class="quick-nav clearfix"  style="display:;">
+	        <!--<label for="remberme" class="remberme J_ping" report-eventid="MLoginRegister_AutoLogin">-->
+                <!--<input type="checkbox" id="remberme" checked>-->
+                <!--<span class="icon icon-rember"></span>-->
+                <!--<span class="txt-remberme">一个月内免登录</span>-->
+		    <!--</label>-->
+		    <!--<div class="language-ui">-->
+			    <a href="javascript:;" class="J_ping findpwd" report-eventid="MLoginRegister_FindPassword"><i class="icon icon-clock"></i><span class="txt-findpwd">忘记密码</span></a>
+		        <a href="javascript:;" class="J_ping quickReg" report-eventid="MLoginRegister_PhoneRegister"><i class="icon icon-reg"></i><span class="txt-quickReg">手机快速注册</span></a>
+
+		    <!--</div>-->
+	    </div>
+        <div class="quick-login" style="display:">
+            <h4 class="txt-otherLogin">其他登录方式</h4>
+            <a href="javascript:;" class="J_ping quick-qq" report-eventid="MLoginRegister_QQLogin"><i class="icon icon-qq"></i><!--<br><span class="txt-qq">QQ</span>--></a>
+            <a href="javascript:;" class="J_ping quick-wx" report-eventid="MLoginRegister_WxLogin" style="display:none"><i class="icon icon-wx"></i><!--<br><span class="txt-wechat">微信</span>--></a>
+            <a href="//m.jdpay.com/wallet/login/index.htm" class="J_ping quick-money" style="display:none"><i class="icon icon-money"></i><!--<br><span class="txt-quickMoney">京东钱包</span>--></a>
+            <div class="agreement-tips" >
+                <p>登录即代表您已同意<a href="//in.m.jd.com/help/app/private_policy.html">京东隐私政策</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="toast-ui"><span class="toast"></span></div>
+<div class="pop-dialog" style="display:none;">
+    <div class="pop-body">
+        <p class="pop-msg">您的账号存在安全风险，请前往电脑版京东验证账号</p>
+        <div class="pop-btns">
+            <a href="javascript:;" class="btn-pop btn-cancel">取消</a>
+            <a href="javascript:;" class="btn-pop btn-continue">继续注册</a>
+        </div>
+    </div>
+</div>
+
+<!--验证历史收货人-->
+<div class="verify-dialog"></div>
+<div class="verify-body">
+    <p class="verify-msg">我们检测到您是已有历史订单的京东用户，为验证您的账户安全，请输入历史收货人进行校验（任意一个即可）。</p>
+    <div class="verify-input-box">
+        <input type="text" class="verify-input" placeholder="输入历史已完成订单中的收货人">
+    </div>
+    <div class="verify-notice"></div>
+    <div class="verify-btns">
+        <a href="javascript:;" class="verify-cancel">取消</a>
+        <a href="javascript:;" class="verify-continue">完成校验</a>
+    </div>
+</div>
+
+<div class="drop"></div>
+<div class="area"></div>
+
+<script src="../../../st_new/js/zepto.min.js"></script>
+<script src="../../../st_new/js/language.js?v=20180111"></script>
+<script>
+//模板需要的变量
+var _need_ck = false,  //是否显示图片验证码
+    risk_jd = null,   // 指纹识别上报数据
+    str_rsaString = 'C3C3BE18F203A9D2F23D68D8F77A6CF5DE0EA20238E5689880DD15528344F0D323BFC7ECEBC40797A896B940DBB6BF37D677B07AA27E25CA1750A0A667307CE44B91EDB7BE1D78BC027FA6EEE33A1DB2870245139F3704404F68B110B12BC5E837F06BD8C86D6718E6785212CE7DC7B109EF686FBA58DBFA0D618813CAA92B51',  // rsa信息
+    wxShow = 'none',  //微信显示上报
+    provinces = '{"*":[{"中国":"86"},{"中国香港":"852"},{"中国澳门":"853"},{"中国台湾":"886"},{"新加坡":"65"},{"马来西亚":"60"},{"澳大利亚":"61"},{"加拿大":"1"},{"美国":"1"},{"新西兰":"64"},{"日本":"81"},{"韩国":"82"}],"A":[{"阿尔巴尼亚":"355"},{"阿尔及利亚":"213"},{"阿富汗":"93"},{"阿根廷":"54"},{"爱尔兰":"353"},{"埃及":"20"},{"爱沙尼亚":"372"},{"埃塞俄比亚":"251"},{"阿联酋":"971"},{"阿鲁巴":"297"},{"阿曼":"968"},{"安道尔":"376"},{"安哥拉":"244"},{"安圭拉":"1264"},{"安提瓜和巴布达":"1268"},{"澳大利亚":"61"},{"奥地利":"43"},{"阿塞拜疆":"994"}],"B":[{"巴巴多斯":"1268"},{"巴布亚新几内亚":"675"},{"巴哈马":"1242"},{"白俄罗斯":"375"},{"百慕大三角":"1441"},{"巴基斯坦":"92"},{"巴拉圭":"595"},{"巴林":"973"},{"巴拿马":"507"},{"保加利亚":"359"},{"巴西":"55"},{"贝宁":"229"},{"比利时":"32"},{"冰岛":"354"},{"博茨瓦纳":"267"},{"波多黎各":"1787"},{"波兰":"48"},{"玻利维亚":"591"},{"伯利兹":"501"},{"波斯尼亚和黑塞哥维那":"387"},{"不丹":"975"},{"布基纳法索":"226"},{"布隆迪":"257"}],"C":[{"赤道几内亚":"240"}],"D":[{"丹麦":"45"},{"德国":"49"},{"东帝汶":"670"},{"多哥":"228"},{"多米尼加共和国":"1767"}],"E":[{"厄立特里亚":"291"},{"俄罗斯":"7"}],"F":[{"法国":"33"},{"法罗群岛":"298"},{"法属圭亚那":"594"},{"斐济群岛":"679"},{"芬兰":"358"},{"佛得角":"238"}],"G":[{"冈比亚":"220"},{"格陵兰":"299"},{"格林纳达":"1473"},{"格鲁吉亚":"995"},{"哥伦比亚":"57"},{"哥斯达黎加":"506"},{"瓜德罗普":"590"},{"关岛":"1671"},{"古巴":"53"},{"圭亚那":"592"}],"H":[{"韩国":"82"},{"海地":"509"},{"哈萨克斯坦":"7"},{"黑山":"382"},{"荷兰":"31"},{"洪都拉斯":"504"}],"J":[{"加纳":"233"},{"加拿大":"1"},{"柬埔寨":"855"},{"加蓬":"241"},{"吉布提":"253"},{"捷克":"420"},{"吉尔吉斯斯坦":"996"},{"津巴布韦":"263"},{"几内亚":"224"},{"几内亚比绍":"245"}],"K":[{"开曼群岛":"1345"},{"喀麦隆":"237"},{"卡塔尔":"974"},{"克罗地亚":"385"},{"科摩罗":"269"},{"肯尼亚":"254"},{"科特迪瓦":"225"},{"科威特":"965"},{"库克群岛":"682"}],"L":[{"莱索托":"266"},{"老挝":"856"},{"拉脱维亚":"371"},{"黎巴嫩":"961"},{"利比里亚":"231"},{"利比亚":"218"},{"列支敦士登":"4175"},{"立陶宛":"370"},{"罗马尼亚":"40"},{"卢森堡":"352"},{"卢旺达":"250"}],"M":[{"马达加斯加":"261"},{"马尔代夫":"960"},{"马耳他":"356"},{"马来西亚":"60"},{"马拉维":"265"},{"马里":"223"},{"毛里求斯":"230"},{"毛里塔尼亚":"222"},{"马其顿":"389"},{"马提尼克":"596"},{"美国":"1"},{"美属萨摩亚":"684"},{"美属维尔京群岛":"1340"},{"蒙古":"976"},{"孟加拉":"880"},{"蒙特塞拉特":"1664"},{"密克罗尼西亚":"691"},{"秘鲁":"51"},{"摩尔多瓦":"373"},{"摩洛哥":"212"},{"摩纳哥":"377"},{"莫桑比克":"258"},{"墨西哥":"52"}],"N":[{"纳米比亚":"0264"},{"南非":"27"},{"厄瓜多尔":"593"},{"南苏丹":"211"},{"尼泊尔":"977"},{"尼加拉瓜":"505"},{"尼日尔":"227"},{"尼日利亚":"234"},{"挪威":"47"}],"P":[{"帕劳":"680"},{"葡萄牙":"351"}],"R":[{"日本":"81"},{"瑞典":"46"},{"瑞士":"41"}],"S":[{"萨尔瓦多":"503"},{"塞尔维亚":"381"},{"塞拉利昂":"232"},{"塞内加尔":"221"},{"塞浦路斯":"357"},{"塞舌尔":"248"},{"萨摩亚":"685"},{"沙特阿拉伯":"966"},{"圣多美和普林西比":"239"},{"圣基茨和尼维斯":"1869"},{"圣卢西亚":"1758"},{"圣马力诺":"378"},{"圣文森特和格林纳丁斯":"1784"},{"斯里兰卡":"94"},{"斯洛伐克":"421"},{"斯洛文尼亚":"386"},{"斯威士兰":"0268"},{"苏丹":"249"},{"苏里南":"597"},{"所罗门群岛":"677"},{"索马里":"252"}],"T":[{"泰国":"66"},{"汤加":"676"},{"坦桑尼亚":"255"},{"塔吉克斯坦":"992"},{"特克斯和凯科斯群岛":"1649"},{"特立尼达和多巴哥":"1868"},{"土耳其":"90"},{"突尼斯":"216"},{"图瓦卢":"688"}],"W":[{"瓦努阿图":"678"},{"危地马拉":"502"},{"委内瑞拉":"58"},{"文莱":"673"},{"乌干达":"256"},{"乌克兰":"380"},{"乌拉圭":"598"},{"乌兹别克斯坦":"998"}],"X":[{"西班牙":"34"},{"希腊":"30"},{"新加坡":"65"},{"新喀里多尼亚":"687"},{"新西兰":"64"},{"匈牙利":"36"},{"叙利亚":"963"}],"Y":[{"牙买加":"1876"},{"亚美尼亚":"374"},{"也门":"967"},{"意大利":"39"},{"伊拉克":"964"},{"伊朗":"98"},{"印度":"91"},{"印度尼西亚":"62"},{"英国":"44"},{"英属维尔京群岛":"1284"},{"以色列":"972"},{"约旦":"962"},{"越南":"84"}],"Z":[{"赞比亚":"260"},{"乍得":"235"},{"智利":"56"},{"中非":"236"},{"中国":"86"},{"中国澳门":"853"},{"中国台湾":"886"},{"中国香港":"852"}]}',
+    str_kenString = 'jg12slyx', //token信息
+    kelperFlag = false,
+    kpkeyBtn = false,  //是否自动拉起一键登录
+    languageFlag = 'chs',  //语言标识
+    isAccountInp = '',
+    switchLogin = 'block',
+    mregUrl = '/cgi-bin/mm/mreg',//注册url
+    onekeyLoginShow = 'none';
+
+var initAccount = '';
+var unmodified_name = '';
+if (initAccount != '') {
+    unmodified_name = initAccount;
+}
+$("#username").val(unmodified_name);
+
+function getDat(username,pwd) {return md5(md5('8SgwzSjO')+'DFdJS1at'+'+4ESobWO'.toLowerCase()+'Lbi+IRQ+');}  //MD5加密调用函数
+
+var language = settings.mlogin[languageFlag];
+$("title").html(language.code_1);
+$(".txt-header").html(language.code_1);
+$(".txt-username").html(language.code_2);
+$("#username").attr("placeholder",language.code_3);
+$(".txt-password").html(language.code_4);
+$("#password").attr("placeholder",language.code_5);
+$(".txt-imgverify").html(language.code_6);
+$("#code").attr("placeholder",language.code_7);
+$("#loginBtn").html(language.code_8);
+$("#loginOneStep").html(language.code_9);
+$(".txt-findpwd").html(language.code_11);
+$(".txt-quickReg").html(language.code_12);
+$(".txt-otherLogin").html(language.code_13);
+//$(".txt-wechat").html(language.code_14);
+//$(".txt-quickMoney").html(language.code_15);
+$(".pop-msg").html(language.code_16);
+$(".btn-cancel").html(language.code_17);
+$(".btn-continue").html(language.code_18);
+$("#account_login_txt").html(language.code_29);
+$("#sms_login_txt").html(language.code_30);
+$('#smsCode').attr('placeholder',language.code_7);
+$('#telphone').attr('placeholder',language.code_31);
+$('.mesg-code').html(language.code_32);
+$('#telCode').attr('placeholder',language.code_33);
+$('.verify-msg').html(language.code_34);
+$('.verify-input').attr('placeholder',language.code_35);
+$('.verify-cancel').html(language.code_17);
+$('.verify-continue').html(language.code_36);
+$("body").addClass(languageFlag).show();
+</script>
+<script src="../../../st_new/js/md5.min.js"></script>
+<!-- 公用方法 -->
+<script src="../../../st_new/js/common.min.js"></script>
+<!-- 公用方法 -->
+<!-- 埋点上报 -->
+<script src="//h5.360buyimg.com/ws_js/jdwebm.js?v=mlogin"></script>
+<script src="//wl.jd.com/unify.min.js"></script>
+<script>
+try{
+    var pv= new MPing.inputs.PV();   // 构造pv 请求
+    var mping = new MPing();         // 构造上报实例
+    mping.send(pv);                  // 上报pv
+} catch (e){}
+function mdUpdata(eventIdstr){
+    try{
+        var eventId = eventIdstr;			 // 必选参数，事件id
+        var click = new MPing.inputs.Click(eventId);         // 构造click 请求
+        //click.event_param = ;		 // 设置click的参数
+        click.page_name = window.location.host + window.location.pathname;
+        click.updateEventSeries();                           // 更新事件串
+
+        var mpingClick = new MPing();				 // 构造上报实例
+        mpingClick.send(click); 					 // 上报click
+    } catch (e){}
+}
+if(!wxShow){
+    var $loginType = $('.login-tab .sms-login');
+    if ($loginType.hasClass('login-selected')) {
+        mdUpdata('MLoginRegister_SMSWxShowUp');
+    } else {
+        mdUpdata('MLoginRegister_WxAppear');
+    }
+}
+if(switchLogin == 'block'){
+    mdUpdata('MLoginRegister_SMSVerificationAppear');
+}
+</script>
+<!-- 埋点上报 -->
+<!-- 指纹识别 -->
+<script src="//payrisk.jd.com/m.html"></script>
+<script src="//payrisk.jd.com/js/m.js"></script>
+<!-- 指纹识别 -->
+<!-- QQ浏览器 -->
+
+<!-- QQ浏览器 -->
+<script>
+//获取url中"?"符后的字串
+function GetRequest() {
+ var url = location.search;
+ var theRequest = new Object();
+ if (url.indexOf("?") != -1) {
+    var str = url.substr(1);
+    strs = str.split("&");
+    for(var i = 0; i < strs.length; i ++) {
+        theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+    }
+ }
+ return theRequest;
+}
+var theRequest = GetRequest();
+var qblog_switch = 'true';
+
+if(theRequest.qbautologin != "false" && qblog_switch){
+  if(window.browser && browser.login && browser.login.getCpOpenid){
+  	browser.login.getCpOpenid({
+      "appkey" : 'jd',
+      "wx_type": 2,
+      "call_login": kelperFlag,
+      "title": "登录QQ浏览器,享受京东一键登录",
+      "subtitle": "",
+      "supportType": 3
+  	},function(res){
+      var resdata = (typeof res == 'string') ? JSON.parse(res) : res;
+  		if(resdata.code == 0){
+  			window.location.href = '//plogin.m.jd.com/cgi-bin/m/qblogin?appid='+theRequest.appid+'&returnurl='+encodeURIComponent(theRequest.returnurl)+'&type='+resdata.type+'&ticket='+resdata.ticket;
+  		}
+  	});
+  }
+}
+
+</script>
+<script src="../../../st_new/js/cityPicker.js"></script>
+<script src="../../../st_new/js/mlogin.min.js?v=20180510"></script>
+</body>
+</html>

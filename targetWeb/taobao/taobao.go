@@ -1,4 +1,4 @@
-package targetWeb
+package taobao
 
 import (
 	"github.com/parnurzeal/gorequest"

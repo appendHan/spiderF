@@ -1,11 +1,11 @@
 package main
 
 import (
-	"./targetWeb"
+	"./targetWeb/jingdong_m"
 	"fmt"
 )
 
 func main() {
-	targetWeb.Do()
+	jingdong_m.Do()
 	fmt.Printf("main end")
 }
