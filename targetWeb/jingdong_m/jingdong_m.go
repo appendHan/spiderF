@@ -10,8 +10,8 @@ import (
 		"strings"
 )
 
-const username = "851733646@qq.com"
-const password = "abcd110120119xyz"
+const username = "************"
+const password = ""************""
 
 func Do() {
 	//加载js
