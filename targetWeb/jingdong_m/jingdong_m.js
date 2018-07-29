@@ -504,23 +504,60 @@ function myEncode(str, key) {
     str = encodeURIComponent(str);
     setMaxDigits(131);
     var keyPair = new RSAKeyPair("3", "10001", key, 1024);
-    return stringToBytes(encryptedString(keyPair, str, RSAAPP.PKCS1Padding, RSAAPP.RawEncoding));
+    return encodeURIComponent(Base64_encode(encryptedString(keyPair, str, RSAAPP.PKCS1Padding, RSAAPP.RawEncoding)));
 }
 
-function stringToBytes ( str ) {
-    var ch, st, re = [];
-    for (var i = 0; i < str.length; i++ ) {
-        ch = str.charCodeAt(i);  // get char
-        st = [];                 // set up "stack"
-        do {
-            st.push( ch & 0xFF );  // push byte to stack
-            ch = ch >> 8;          // shift value down by 1 byte
+//public method for encoding
+function Base64_encode (input) {
+    var keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+    var output = "", chr1, chr2, chr3, enc1, enc2, enc3, enc4, i = 0;
+    input = Base64_ascii_encode(input);
+    while (i < input.length) {
+        chr1 = input.charCodeAt(i++);
+        chr2 = input.charCodeAt(i++);
+        chr3 = input.charCodeAt(i++);
+        enc1 = chr1 >> 2;
+        enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+        enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+        enc4 = chr3 & 63;
+        if (isNaN(chr2)) {
+            enc3 = enc4 = 64;
+        } else if (isNaN(chr3)) {
+            enc4 = 64;
         }
-        while ( ch );
-        // add stack contents to result
-        // done because chars have "wrong" endianness
-        re = re.concat( st.reverse() );
+        output = output +
+            keyStr.charAt(enc1) + keyStr.charAt(enc2) +
+            keyStr.charAt(enc3) + keyStr.charAt(enc4);
     }
-    // return an array of bytes
-    return re;
+    return output;
+}
+
+function Base64_utf8_encode (str) {
+    str = str.replace(/\r\n/g,"\n");
+    var utftext = "";
+    for (var n = 0; n < str.length; n++) {
+        var c = str.charCodeAt(n);
+        if (c < 128) {
+            utftext += String.fromCharCode(c);
+        } else if((c > 127) && (c < 2048)) {
+            utftext += String.fromCharCode((c >> 6) | 192);
+            utftext += String.fromCharCode((c & 63) | 128);
+        } else {
+            utftext += String.fromCharCode((c >> 12) | 224);
+            utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+            utftext += String.fromCharCode((c & 63) | 128);
+        }
+
+    }
+    return utftext;
+}
+
+function Base64_ascii_encode (str) {
+    str = str.replace(/\r\n/g,"\n");
+    var utftext = "";
+    for (var n = 0; n < str.length; n++) {
+        var c = str.charCodeAt(n);
+        utftext += String.fromCharCode(c);
+    }
+    return utftext;
 }

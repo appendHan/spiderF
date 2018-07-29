@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="965c1abe-30f7-4766-8636-71fbfd1cc35f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/targetWeb/jingdong_m/jingdong_dev/mlogin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/targetWeb/jingdong_m/jingdong_m.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/targetWeb/jingdong_m/jingdong_m.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/targetWeb/taobao.go" beforeDir="false" afterPath="$PROJECT_DIR$/targetWeb/taobao/taobao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/targetWeb/jingdong_m/jingdong_m.go" beforeDir="false" afterPath="$PROJECT_DIR$/targetWeb/jingdong_m/jingdong_m.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/targetWeb/jingdong_m/jingdong_m.js" beforeDir="false" afterPath="$PROJECT_DIR$/targetWeb/jingdong_m/jingdong_m.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +15,7 @@
     <session id="-1715060738">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.opened" value="2" />
@@ -27,14 +23,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="939" />
-          <entry key="js" value="101" />
+          <entry key="go" value="965" />
+          <entry key="js" value="158" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Go" value="939" />
-          <entry key="JavaScript" value="101" />
+          <entry key="Go" value="965" />
+          <entry key="JavaScript" value="158" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.go.postfix.template.usages.trigger">
@@ -44,7 +40,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="go" value="41" />
+          <entry key="go" value="44" />
           <entry key="html" value="3" />
           <entry key="js" value="14" />
         </counts>
@@ -52,7 +48,7 @@
       <usages-collector id="statistics.js.language.service.starts" />
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Go" value="41" />
+          <entry key="Go" value="44" />
           <entry key="HTML" value="3" />
           <entry key="JavaScript" value="14" />
         </counts>
@@ -61,11 +57,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/targetWeb/jingdong_m/jingdong_m.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="46" column="48" lean-forward="true" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
+            <state relative-caret-position="123">
+              <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
               <folding>
                 <element signature="e#20#180#0" expanded="true" />
               </folding>
@@ -73,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file:///usr/local/go/src/encoding/base64/base64.go">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/go/src/github.com/parnurzeal/gorequest/gorequest.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="173" column="1" lean-forward="true" selection-start-line="173" selection-start-column="1" selection-end-line="173" selection-end-column="1" />
+            <state relative-caret-position="157">
+              <caret line="871" column="32" lean-forward="true" selection-start-line="871" selection-start-column="32" selection-end-line="871" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -85,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/targetWeb/jingdong_m/jingdong_m.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="506" column="96" selection-start-line="506" selection-start-column="96" selection-end-line="506" selection-end-column="96" />
+            <state relative-caret-position="231">
+              <caret line="506" column="116" selection-start-line="506" selection-start-column="116" selection-end-line="506" selection-end-column="116" />
             </state>
           </provider>
         </entry>
@@ -151,6 +147,7 @@
       <find>DoNotClearSuperAgent</find>
       <find>ClearSuperAgent</find>
       <find>FormData</find>
+      <find>changeMapToURLValues</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
@@ -377,12 +374,12 @@
     <frame x="1" y="22" width="1440" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20958512" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20958512" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32822478" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49713877" visible="true" weight="0.326972" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49713877" weight="0.326972" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39694658" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -601,13 +598,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/go/src/runtime/panic.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="590" selection-start-line="590" selection-end-line="590" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/go/src/regexp/regexp.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="568">
@@ -627,13 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/targetWeb/jingdong_m/jingdong_dev/plogin.m.jd.com.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="145" column="277" selection-start-line="145" selection-start-column="21" selection-end-line="145" selection-end-column="277" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/go/src/builtin/builtin.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">
@@ -645,13 +628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="293" column="17" selection-start-line="293" selection-start-column="17" selection-end-line="293" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/go/src/github.com/parnurzeal/gorequest/gorequest.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="977" column="21" selection-start-line="977" selection-start-column="21" selection-end-line="977" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -731,13 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/targetWeb/jingdong_m/jingdong_m.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="506" column="96" selection-start-line="506" selection-start-column="96" selection-end-line="506" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/go/src/github.com/robertkrimen/otto/value.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -752,20 +721,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/targetWeb/jingdong_m/jingdong_m.go">
+    <entry file="file:///usr/local/go/src/encoding/base64/base64.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="46" column="48" lean-forward="true" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
-          <folding>
-            <element signature="e#20#180#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1041">
+          <caret line="173" column="1" lean-forward="true" selection-start-line="173" selection-start-column="1" selection-end-line="173" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/go/src/encoding/base64/base64.go">
+    <entry file="file:///usr/local/go/src/runtime/panic.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="173" column="1" lean-forward="true" selection-start-line="173" selection-start-column="1" selection-end-line="173" selection-end-column="1" />
+        <state relative-caret-position="152">
+          <caret line="590" selection-start-line="590" selection-end-line="590" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/targetWeb/jingdong_m/jingdong_dev/plogin.m.jd.com.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="145" column="277" selection-start-line="145" selection-start-column="21" selection-end-line="145" selection-end-column="277" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/targetWeb/jingdong_m/jingdong_m.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="506" column="116" selection-start-line="506" selection-start-column="116" selection-end-line="506" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/go/src/github.com/parnurzeal/gorequest/gorequest.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="871" column="32" lean-forward="true" selection-start-line="871" selection-start-column="32" selection-end-line="871" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/targetWeb/jingdong_m/jingdong_m.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+          <folding>
+            <element signature="e#20#180#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

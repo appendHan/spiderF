@@ -1,8 +1,7 @@
 package jingdong_m
 
 import (
-	"encoding/base64"
-	"github.com/parnurzeal/gorequest"
+		"github.com/parnurzeal/gorequest"
 	"github.com/robertkrimen/otto"
 	"io/ioutil"
 	"log"
@@ -26,7 +25,7 @@ func Do() {
 
 	req := gorequest.New()
 	req.DoNotClearSuperAgent = true
-	req.Proxy("http://127.0.0.1:8888")
+	//req.Proxy("http://127.0.0.1:8888")
 	req.Set("Cache-Control", "max-age=0")
 	req.Set("Upgrade-Insecure-Requests", "1")
 	req.Set("Accept-Language", "zh-CH,zh:q=0.8")
@@ -38,18 +37,14 @@ func Do() {
 	md5js := regexp.MustCompile("getDat\\(username,pwd\\) {return (.*?);} ").FindStringSubmatch(response_html)[1]
 	str_kenString := regexp.MustCompile("str_kenString = '(.*?)',").FindStringSubmatch(response_html)[1]
 	str_rsaString := regexp.MustCompile("str_rsaString = '(.*?)',").FindStringSubmatch(response_html)[1]
-	md5, _ := vm.Run("md5(" + md5js + ")")
+	md5, _ := vm.Run( md5js)
 
 	username_tmp, _ := vm.Run("myEncode('" + username + "','" + str_rsaString + "')")
 	password_tmp, _ := vm.Run("myEncode('" + password + "','" + str_rsaString + "')")
 	log.Println(username_tmp.String())
-
-	username_rsa := base64.StdEncoding.EncodeToString([]byte(username_tmp.String()))
-	passwoord_rsa := base64.StdEncoding.EncodeToString([]byte(password_tmp.String()))
-
 	_, _, _ = req.Post("https://plogin.m.jd.com/cgi-bin/m/domlogin").
-		Send("username=" + username_rsa).
-		Send("pwd=" + passwoord_rsa).
+		Send("username=" + username_tmp.String()).
+		Send("pwd=" + password_tmp.String()).
 		Send("remember=true").
 		Send("s_token=" + str_kenString).
 		Send("dat=" + md5.String()).
